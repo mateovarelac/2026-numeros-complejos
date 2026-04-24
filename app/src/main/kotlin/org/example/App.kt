@@ -11,20 +11,11 @@ class Complejo{
         this.real = real
         this.imaginario = imaginario
     }
-    fun return_value_real(): Int{
-        return real
-    }
-    fun return_value_imagine(): Int{
-        return imaginario
-    }
     fun return_in_str(): String{
-        return "($real + $imaginario i)"
+        return "(${real} + ${imaginario} i)"
     }
     fun return_to_suma(value: String) {
         this.suma = value
-    }
-    fun show_suma(): String {
-        return this.suma
     }
 }
 
@@ -32,11 +23,8 @@ fun main() {
     val app: Complejo
     app=Complejo()
     app.inicialize(5, 2)
-    println(app.return_value_real())
-    println(app.return_value_imagine())
-    println(app.return_in_str())
+    println("Mi numero complejo es ${app.return_in_str()}")
     app.return_to_suma(app.return_in_str())
-    println(app.show_suma())
 }
 /*
     # 2026-numeros-complejos
