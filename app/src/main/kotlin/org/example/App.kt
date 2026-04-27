@@ -25,6 +25,7 @@ fun main() {
     app.inicialize(5, 2)
     println("Mi numero complejo es ${app.return_in_str()}")
     app.return_to_suma(app.return_in_str())
+    println("Hola, esto es un cambio")
 }
 /*
     # 2026-numeros-complejos
