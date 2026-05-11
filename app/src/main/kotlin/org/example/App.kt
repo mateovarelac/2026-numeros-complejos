@@ -3,54 +3,42 @@
  */
 package org.example
 
-class Complejo{
-    private var imaginario: Int = 0
-    private var real: Int = 0
-    private var suma: String = ""
-    fun inicialize(real: Int, imaginario: Int){
-        this.real = real
-        this.imaginario = imaginario
+class Complejo(private var real: Int=0 , private var imag: Int=0 ) {
+
+    fun inicializar(real:Int,imag:Int){
+        this.real=real
+        this.imag=imag
     }
-    fun return_in_str(): String{
-        return "(${real} + ${imaginario} i)"
+    fun mostrar(){
+        println(this.toString())
     }
-    fun return_to_suma(value: String) {
-        this.suma = value
+    override fun toString():String{
+        return "(${real},${imag})"
+    }
+    fun sumar(valor: Complejo): Complejo {
+        return Complejo(
+            real + valor.real,
+            imag + valor.imag
+        )
+    }
+    fun restar(valor: Complejo): Complejo {
+        return Complejo(
+            real - valor.real,
+            imag - valor.imag
+        )
     }
 }
 
 fun main() {
-    val app: Complejo
-    app=Complejo()
-    app.inicialize(5, 2)
-    println("Mi numero complejo es ${app.return_in_str()}")
-    app.return_to_suma(app.return_in_str())
-    println("Hola, esto es un cambio")
+    var complejo: Complejo
+    complejo = Complejo(3,4)
+    println("mi número complejo es ${complejo.toString()}")
+
+    var c2:Complejo= Complejo(3,6)
+    var c3:Complejo= Complejo(1,2)
+    c3 = complejo.sumar(c2)
+    c3.mostrar()
+    c3 = c2.restar(complejo)
+    c3.mostrar()
+
 }
-/*
-    # 2026-numeros-complejos
-
-    # Clase Complejo - Ejercicio
-
-    ## Descripción
-
-    Se pide crear una clase llamada `Complejo` que represente un número complejo.
-
-    ## Requisitos
-
-    1. **Atributos privados**: La clase debe tener dos atributos privados:
-    - `reale`: parte real del número complejo
-    - `imaginario`: parte imaginaria del número complejo
-
-    2. **Método para mostrar**: Implementar una función que retorne el número complejo en formato:
-    ```
-    (real, imaginario)
-    ```
-
-    3. **Ejemplo de uso**
-
-    ```python
-    c = Complejo(3, 4)
-    print(c.mostrar())  # Salida: (3, 4)
-    ```     
- */

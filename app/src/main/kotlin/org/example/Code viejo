@@ -1,0 +1,32 @@
+package org.example
+
+class Complejo(private var imaginario: Int = 0, private var real: Int = 0){
+    
+    fun inicialize(real: Int, imaginario: Int){
+        this.real = real
+        this.imaginario = imaginario
+    }
+    fun mostrar(){
+        println(this.return_in_str())
+    }
+    fun return_in_str(): String{
+        return "(${real} + ${imaginario} i)"
+    }
+    fun sumar(value: Complejo): Complejo {
+        return Complejo(
+            real + value.real,
+            imaginario + value.imaginario
+        )
+    }
+}
+
+fun main() {
+    val app: Complejo
+    val c3: Complejo = Complejo()
+    app=Complejo()
+    app.inicialize(5, 2)
+    c3.inicialize(3, 4)
+    println("Mi numero complejo es ${app.return_in_str()}")
+    println("Hola, esto es un cambio")
+    println(app.sumar(c3))
+}
