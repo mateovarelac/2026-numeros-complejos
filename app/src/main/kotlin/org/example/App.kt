@@ -3,42 +3,64 @@
  */
 package org.example
 
-class Complejo(private var real: Int=0 , private var imag: Int=0 ) {
+class Complejo(private var real: Double = 0.0, private var imag: Double = 0.0) {
 
-    fun inicializar(real:Int,imag:Int){
-        this.real=real
-        this.imag=imag
+    fun inicializar(real: Double, imag: Double) {
+        this.real = real
+        this.imag = imag
     }
-    fun mostrar(){
+
+    fun mostrar() {
         println(this.toString())
     }
-    override fun toString():String{
+
+    override fun toString(): String {
         return "(${real},${imag})"
     }
+
     fun sumar(valor: Complejo): Complejo {
         return Complejo(
             real + valor.real,
             imag + valor.imag
         )
     }
+
     fun restar(valor: Complejo): Complejo {
         return Complejo(
             real - valor.real,
             imag - valor.imag
         )
     }
+
+    // Función de Multiplicación
+    fun multiplicar(valor: Complejo): Complejo {
+        return Complejo(
+            real * valor.real - imag * valor.imag,
+            real * valor.imag + imag * valor.real
+        )
+    }
+
+    // Función de División
+    fun dividir(valor: Complejo): Complejo {
+        val denominador = valor.real * valor.real + valor.imag * valor.imag
+        return Complejo(
+            (real * valor.real + imag * valor.imag) / denominador,
+            (imag * valor.real - real * valor.imag) / denominador
+        )
+    }
 }
 
 fun main() {
     var complejo: Complejo
-    complejo = Complejo(3,4)
+    complejo = Complejo(3.0, 4.0)
     println("mi número complejo es ${complejo.toString()}")
 
-    var c2:Complejo= Complejo(3,6)
-    var c3:Complejo= Complejo(1,2)
-    c3 = complejo.sumar(c2)
+    var c2: Complejo = Complejo(3.0, 6.0)
+    var c3: Complejo = Complejo(1.0, 2.0)
+    
+    c3 = complejo.multiplicar(c2)
     c3.mostrar()
-    c3 = c2.restar(complejo)
+    
+    c3 = c2.dividir(complejo)
     c3.mostrar()
-
 }
