@@ -56,7 +56,7 @@ fun main() {
     println("mi número complejo es ${complejo.toString()}")
 
     var c2: Complejo = Complejo(3.0, 6.0)
-    var c3: Complejo = Complejo(1.0, 2.0)
+    var c3: Complejo = Complejo()
     
     c3 = complejo.multiplicar(c2)
     c3.mostrar()
